@@ -17,13 +17,17 @@ app.use(cors());
 // connect the database
 
 app.use('/posts', postRoutes);
-// const CONNECTION_URL = 'mongodb+srv://MERN-Stack:btissam123@cluster0.rppsd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+
+app.get('/',(req, res) => {
+
+  res.send('Hello to Memories API')
+});
+
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => app.listen(PORT, () => console.log(`Server Running on Port:${PORT}`)))
   .catch((error) => console.log(error.message));
-  // .catch((error) => console.log(`${error} did not connect`));
 
 
   // mongoose.set('useFindAndModify', false);
