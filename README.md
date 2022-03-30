@@ -2,8 +2,10 @@
 -> axios: to get api request 
 -> moment.js: to work with time and date
 -> react-file-base64: to convrt our images
--> redux and redux-thunk and react-redux: to asychronous actions using redux
+-> redux and redux-thunk and react-redux: to          asychronous actions using redux
 -> material-ui/core
+-> jwt-decode
+-> react-google-login
 
 # in server modul we install:
 
@@ -12,6 +14,8 @@
 -> express: use as a framework for creating the routing of our application
 -> mongoose: to create models for our posts
 -> nodemon: use to don't have to manually reset the server evry time we make a change
+-> bcryptjs
+-> jsonwebtoken
 
 # for the deployment
 
