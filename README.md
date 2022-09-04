@@ -3,12 +3,12 @@
 - moment.js: to work with time and date
 - react-file-base64: to convrt our images
 - redux and redux-thunk and react-redux: to asychronous actions using redux
-- material-ui/core
+- material-ui/core: for the layout
 
 # in server modul we install:
 
 - body parser: this is going to anable us to send post requests
-- course; is going to enable cross origin requests  
+- course: is going to enable cross origin requests  
 - express: use as a framework for creating the routing of our application
 - mongoose: to create models for our posts
 - nodemon: use to don't have to manually reset the server evry time we make a change
@@ -23,13 +23,14 @@
   - git add .
   - git commit -am "make it better"
   - git push heroku master
-  - the add <app.get('/',(req, res) => {res.send('Hello to Memories API')});> in your code for know the deployemnet is well
+  - the add <app.get('/',(req, res))> ;{res.send('Hello to Memories API')};
+  - in your code for know the deployemnet is well
   - in the client/sr/api/index.js replace the <const url = 'http://localhost/5000/posts'> by <const url = 'https://memories-app-mern-stack.herokuapp.com/posts';>
   
 ## for the front-end: we use here
 ### netlify
-  - first step is : npm run build
-  - the we found a folder name is build 
+  - npm run build
+  - then we found a folder name is build 
   - click on D 
   - reveal in file explorer
   - take it into the netlify
