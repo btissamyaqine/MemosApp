@@ -2,9 +2,11 @@ import React, {useState, useEffect} from 'react';
 import { Paper, Grid, Avatar, Button, Typography, Container } from '@material-ui/core';
 import { GoogleLogin } from 'react-google-login';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import Icon from './icon';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import {AUTH}  from '../../constants/actionType';
 import useStyles from './styles';
 import { gapi } from 'gapi-script';
 import Input from './Input'
@@ -17,6 +19,8 @@ const Auth = () => {
   const [isSignup, setIsSignup] = useState(false);
   
   const dispatch = useDispatch();
+  
+  const navigate = useNavigate();
 
   const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword)
   
@@ -30,13 +34,17 @@ const Auth = () => {
     setIsSignup((prevIsSignup) => !prevIsSignup);
     handleShowPassword(false);
   };
+
   const googleSuccess = async (res) => {
-    const result = res?.projelrObj;
+    const result = res?.profileObj;
     const token = res?.tokenId;
+
     try {
-      dispatch({ type: 'AUTH', data: {result, token} });
-    }catch (error) {
-      console.log(error)
+      dispatch({ type: AUTH, data: { result, token } });
+
+      navigate.push('/');
+    } catch (error) {
+      console.log(error);
     }
   };
   const googleFailure = (error) => {
@@ -63,7 +71,7 @@ const Auth = () => {
           <LockOutlinedIcon />
         </Avatar>
         <Typography variant="h5">{isSignup ? 'Sign Up' : 'Sign In'}</Typography>
-        <form classNmae={classes.form} onSubmit = {handleSubmit}>
+        <form className={classes.form} onSubmit = {handleSubmit}>
           <Grid container spacing={2}>
             {
               isSignup && (
@@ -81,7 +89,7 @@ const Auth = () => {
                 {isSignup ? 'Sign Up' : 'Sign In'}
           </Button>
           <GoogleLogin 
-            clientId= "821674936802-t3ngcbqv8mm0npuj5qkl3m62amd63adh.apps.googleusercontent.com"
+            clientId= "821674936802-68g2kqd4tlc26jtmf97g6q4h6qr2v2pt.apps.googleusercontent.com"
             render= {(renderProps) => (
               <Button 
                 color='primary' 
@@ -97,7 +105,7 @@ const Auth = () => {
             onFailure={googleFailure}
             cookiePolicy="single_host_origin"
           />
-          <Grid container justify="flex-end">
+          <Grid container justifyContent="flex-end">
             <Grid item>
               <Button onClick={switchMode}>
                 {isSignup ? 'Already have an account? Sing In' : "Don't have an account? Sing Up"  }

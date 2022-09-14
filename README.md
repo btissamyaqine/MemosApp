@@ -1,28 +1,11 @@
 # in client module we install:
-<<<<<<< HEAD
--> axios: to get api request 
--> moment.js: to work with time and date
--> react-file-base64: to convrt our images
--> redux and redux-thunk and react-redux: to          asychronous actions using redux
--> material-ui/core
--> jwt-decode
--> react-google-login
-
-# in server modul we install:
-
--> body parser: this is going to anable us to send post requests
--> course; is going to enable cross origin requests  
--> express: use as a framework for creating the routing of our application
--> mongoose: to create models for our posts
--> nodemon: use to don't have to manually reset the server evry time we make a change
--> bcryptjs
--> jsonwebtoken
-=======
 - axios: to get api request 
 - moment.js: to work with time and date
 - react-file-base64: to convrt our images
 - redux and redux-thunk and react-redux: to asychronous actions using redux
 - material-ui/core: for the layout
+- install jwt-decode
+- react-google-login
 
 # in server modul we install:
 
@@ -31,7 +14,7 @@
 - express: use as a framework for creating the routing of our application
 - mongoose: to create models for our posts
 - nodemon: use to don't have to manually reset the server evry time we make a change
->>>>>>> like
+- bcryptjs jsonwebtoken
 
 # for the deployment
 
@@ -46,6 +29,7 @@
   - the add <app.get('/',(req, res))> ;{res.send('Hello to Memories API')};
   - in your code for know the deployemnet is well
   - in the client/sr/api/index.js replace the <const url = 'http://localhost/5000/posts'> by <const url = 'https://memories-app-mern-stack.herokuapp.com/posts';>
+### Zeet
   
 ## for the front-end: we use here
 ### netlify
@@ -64,3 +48,5 @@
  - then i go to index.js file and add
    - var cors = require('cors');
    - app.use(cors());
+# for the part of Auth with Google 
+<b> you can get the Google Id from console cloud google (https://console.cloud.google.com/)</b>
