@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { Paper, Grid, Avatar, Button, Typography, Container } from '@material-ui/core';
 import { GoogleLogin } from 'react-google-login';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 import Icon from './icon';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -42,7 +42,7 @@ const Auth = () => {
     try {
       dispatch({ type: AUTH, data: { result, token } });
 
-      navigate.push('/');
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
