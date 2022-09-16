@@ -5,6 +5,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 
 import postRoutes from './routes/posts.js';
+import userRouter from "./routes/users.js";
 
 const app = express();
 dotenv.config();
@@ -17,7 +18,7 @@ app.use(cors());
 // connect the database
 
 app.use('/posts', postRoutes);
-
+app.use("/users", userRouter);
 app.get('/',(req, res) => {
 
   res.send('Hello to Memories API')
