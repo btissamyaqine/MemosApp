@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate} from 'react-router-dom';
 import { AppBar, Typography, Toolbar, Avatar, Button } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
+import decode from 'jwt-decode';
 
 import useStyles from './styles';
 import memories from "../../images/memories.png";
@@ -23,11 +24,28 @@ const Navbar = () => {
     setUser(null);
 
   };
+  // useEffect(() => {
+  //   const token = user?.token;
+
+  //   if(token) {
+  //     const decodedToken = decode(token);
+
+  //     if(decodedToken.exp = 1000 < new DataTransfer().getTime()) Logout();
+  //   }
+
+  //   setUser(JSON.parse(localStorage.getItem('profile')));
+  // },[location]);
   useEffect(() => {
     const token = user?.token;
+
+    if (token) {
+      const decodedToken = decode(token);
+
+      if (decodedToken.exp * 1000 < new Date().getTime()) Logout();
+    }
+
     setUser(JSON.parse(localStorage.getItem('profile')));
-  },[location]);
-  
+  }, [location]);
   return (
      
       <AppBar className={classes.appBar} position="static" color="inherit">

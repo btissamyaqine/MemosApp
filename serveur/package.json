@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index --ignore client.js "
   },
   "server": "json-server --watch db.json --port 5000 --no-cors",
   "keywords": [],

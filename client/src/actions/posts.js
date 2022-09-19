@@ -54,15 +54,3 @@ export const likePost = (id) => async (dispatch) => {
     
   }
 }
-
-// export const unlikePost = (id) => async (dispatch) => {
-//   try {
-//     const { data } = await api.unlikePost(id);
-      
-//      dispatch({ type: DISLIKE, payload: data });
-     
-//   } catch (error) {
-//     console.log(error);
-    
-//   }
-// }
