@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import React, {useState} from 'react';
-import { Paper, Grid, Avatar, Button, Typography, Container} from '@material-ui/core';
-=======
 import React, {useState, useEffect} from 'react';
 import { Paper, Grid, Avatar, Button, Typography, Container } from '@material-ui/core';
 import { GoogleLogin } from 'react-google-login';
@@ -9,7 +5,6 @@ import { useDispatch } from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 
 import Icon from './icon';
->>>>>>> jwt
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import {AUTH}  from '../../constants/actionType';
 import useStyles from './styles';
