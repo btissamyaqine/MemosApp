@@ -6,6 +6,7 @@
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.61",
     "@react-oauth/google": "^0.2.6",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
@@ -14,6 +15,7 @@
     "cors": "^2.8.5",
     "gapi-script": "^1.2.0",
     "jwt-decode": "^3.1.2",
+    "material-ui-chip-input": "^2.0.0-beta.2",
     "moment": "^2.29.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

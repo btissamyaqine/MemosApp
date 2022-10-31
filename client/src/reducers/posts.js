@@ -1,7 +1,7 @@
+import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE } from '../constants/actionType';
 
-import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE } from '../constants/actionType'
-
-export default function appReducer (posts = [], action) {
+// eslint-disable-next-line import/no-anonymous-default-export
+export default (posts = [], action) => {
   switch (action.type) {
     case FETCH_ALL:
       return action.payload;
@@ -16,4 +16,4 @@ export default function appReducer (posts = [], action) {
     default:
       return posts;
   }
-}
+};

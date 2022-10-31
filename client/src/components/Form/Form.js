@@ -1,23 +1,25 @@
-import React, { useState, useEffect } from "react";
-import { TextField, Button, Typography, Paper } from "@material-ui/core";
+import React, { useState, useEffect } from 'react';
+import { TextField, Button, Typography, Paper } from '@material-ui/core';
+import { useDispatch, useSelector } from 'react-redux';
 import FileBase from 'react-file-base64';
-import useStyles from './Styles';
-import { useDispatch, useSelector } from "react-redux";
-import { createPost, updatePost } from '../../actions/posts';
 
+import { createPost, updatePost } from '../../actions/posts';
+import useStyles from './Styles';
 
 const Form = ({ currentId, setCurrentId }) => {
-  const [postData, setPostData] = useState({ title:'', message:'', tags:'', selectedFile:''});
-  const classes = useStyles();
-  const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null);
+  const [postData, setPostData] = useState({ title: '', message: '', tags: '', selectedFile: '' });
+  const post = useSelector((state) => (currentId ? state.posts.find((message) => message._id === currentId) : null));
   const dispatch = useDispatch();
+  const classes = useStyles();
   const user = JSON.parse(localStorage.getItem('profile'));
+
   useEffect(() => {
-    if(post) setPostData(post)
-  },[post]);
+    if (post) setPostData(post);
+  }, [post]);
+
   const clear = () => {
-    setCurrentId(null);
-    setPostData({ title:'', message:'', tags:'', selectedFile:'' });
+    setCurrentId(0);
+    setPostData({ title: '', message: '', tags: '', selectedFile: '' });
   };
 
   const handleSubmit = async (e) => {
@@ -55,5 +57,6 @@ const Form = ({ currentId, setCurrentId }) => {
       </form>
     </Paper>
   );
-}
+};
+
 export default Form;

@@ -6,7 +6,8 @@
 - material-ui/core: for the layout
 - install jwt-decode
 - react-google-login
-
+- material-ui/lab
+- material-ui-chip-input
 # in server modul we install:
 
 - body parser: this is going to anable us to send post requests
@@ -49,8 +50,7 @@
    - var cors = require('cors');
    - app.use(cors());
 # for the part of Auth with Google 
-<<<<<<< HEAD
+
 <b> you can get the Google Id from console cloud google (https://console.cloud.google.com/)</b>
-=======
-<b> you can get the Google Id from console cloud google (https://console.cloud.google.com/)</b>
->>>>>>> jwt
+
+
