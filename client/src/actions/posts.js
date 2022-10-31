@@ -1,5 +1,5 @@
 
-import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE, DISLIKE } from '../constants/actionType';
+import { FETCH_ALL, CREATE, UPDATE, DELETE, LIKE} from '../constants/actionType';
 import * as api from '../api';
 
 //action creators
@@ -55,14 +55,14 @@ export const likePost = (id) => async (dispatch) => {
   }
 }
 
-export const unlikePost = (id) => async (dispatch) => {
-  try {
-    const { data } = await api.unlikePost(id);
+// export const unlikePost = (id) => async (dispatch) => {
+//   try {
+//     const { data } = await api.unlikePost(id);
       
-     dispatch({ type: DISLIKE, payload: data });
+//      dispatch({ type: DISLIKE, payload: data });
      
-  } catch (error) {
-    console.log(error);
+//   } catch (error) {
+//     console.log(error);
     
-  }
-}
+//   }
+// }

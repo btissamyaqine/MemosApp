@@ -49,4 +49,8 @@
    - var cors = require('cors');
    - app.use(cors());
 # for the part of Auth with Google 
+<<<<<<< HEAD
 <b> you can get the Google Id from console cloud google (https://console.cloud.google.com/)</b>
+=======
+<b> you can get the Google Id from console cloud google (https://console.cloud.google.com/)</b>
+>>>>>>> jwt
