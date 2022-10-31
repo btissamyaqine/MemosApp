@@ -18,7 +18,7 @@ app.use(cors());
 // connect the database
 
 app.use('/posts', postRoutes);
-app.use('/user', userRouter);
+app.use("/user", userRouter);
 
 app.get('/',(req, res) => {
 

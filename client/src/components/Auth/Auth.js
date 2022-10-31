@@ -14,24 +14,26 @@ import { signin, signup } from '../../actions/auth';
 
 const initialState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: '' };
 
-const Auth = () => {
-
-  const classes = useStyles();
-  const [showPassword, setShowPassword] = useState(false)
-
-  const [isSignup, setIsSignup] = useState(false);
+const SignUp  = () => {
 
   const [form, setForm] = useState(initialState);
-  
+  const [isSignup, setIsSignup] = useState(false);
   const dispatch = useDispatch();
-  
   const navigate = useNavigate();
+  const classes = useStyles();
 
-  const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword)
+  const [showPassword, setShowPassword] = useState(false);
+  const handleShowPassword = () => setShowPassword(!showPassword);
   
+  const switchMode = () => {
+    setForm(initialState);
+    setIsSignup((prevIsSignup) => !prevIsSignup);
+    setShowPassword(false);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(form);
+
     if (isSignup) {
       dispatch(signup(form, navigate));
     } else {
@@ -39,15 +41,19 @@ const Auth = () => {
     }
   };
 
-  // const handleChange = (e) => { setFormData({ ...formData, [e.target.name]: e.target.value})};
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-  
-  
-  const switchMode = () => {
-    setIsSignup((prevIsSignup) => !prevIsSignup);
-    setShowPassword(false);
-  };
 
+  // const googleSuccess = async (res) => {
+  //   const result = res?.profileObj;
+  //   const token = res?.tokenId;
+
+  //   try {
+  //     dispatch({ type: AUTH, data: { result, token } });
+
+  //     navigate("/");
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
   const googleSuccess = async (res) => {
     const result = res?.profileObj;
     const token = res?.tokenId;
@@ -55,16 +61,13 @@ const Auth = () => {
     try {
       dispatch({ type: AUTH, data: { result, token } });
 
-      navigate("/");
+      navigate('/');
     } catch (error) {
       console.log(error);
     }
   };
-  const googleFailure = (error) => {
-    console.log(error);
-    console.log("Google Sign In was unsuccesseful. Try Again Later")
+  const googleError = () => alert('Google Sign In was unsuccessful. Try again later');
 
-  };
   useEffect(() => {
     function start() {
       gapi.client.init({
@@ -76,6 +79,7 @@ const Auth = () => {
     gapi.load('client:auth2', start);
   }, []);
   
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
   return (
     <Container component="main" maxWidth="xs">
@@ -115,7 +119,7 @@ const Auth = () => {
               </Button>
             )}
             onSuccess= {googleSuccess}
-            onFailure={googleFailure}
+            onFailure={googleError}
             cookiePolicy="single_host_origin"
           />
           <Grid container justifyContent="flex-end">
@@ -133,4 +137,4 @@ const Auth = () => {
   );
 }
 
-export default Auth
+export default SignUp 
