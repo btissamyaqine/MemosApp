@@ -8,7 +8,8 @@ import useStyles from './Styles';
 
 const Form = ({ currentId, setCurrentId }) => {
   const [postData, setPostData] = useState({ title: '', message: '', tags: '', selectedFile: '' });
-  const post = useSelector((state) => (currentId ? state.posts.find((message) => message._id === currentId) : null));
+  // const post = useSelector((state) => (currentId ? state.posts?.find((message) => message._id === currentId) : null));
+  const post = useSelector((state) => (currentId ? state.posts.posts?.find((message) => message._id === currentId) : null));
   const dispatch = useDispatch();
   const classes = useStyles();
   const user = JSON.parse(localStorage.getItem('profile'));
@@ -45,7 +46,7 @@ const Form = ({ currentId, setCurrentId }) => {
   }
 
   return (
-    <Paper className={classes.paper}>
+    <Paper className={classes.paper} elevation={6}>
       <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
         <Typography variant="h6">{currentId ? `Editing "${post.title}"` : 'Creating a Memory'}</Typography>
         <TextField name="title" variant="outlined" label="Title" fullWidth value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })} />
