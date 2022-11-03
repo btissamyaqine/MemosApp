@@ -40,20 +40,6 @@ const SignUp  = () => {
       dispatch(signin(form, navigate));
     }
   };
-
-
-  // const googleSuccess = async (res) => {
-  //   const result = res?.profileObj;
-  //   const token = res?.tokenId;
-
-  //   try {
-  //     dispatch({ type: AUTH, data: { result, token } });
-
-  //     navigate("/");
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
   const googleSuccess = async (res) => {
     const result = res?.profileObj;
     const token = res?.tokenId;
@@ -88,7 +74,7 @@ const SignUp  = () => {
           <LockOutlinedIcon />
         </Avatar>
         <Typography variant="h5">{isSignup ? 'Sign Up' : 'Sign In'}</Typography>
-        <form className={classes.form} onSubmit = {handleSubmit}>
+        <form className={classes.form} onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             {
               isSignup && (
@@ -118,7 +104,7 @@ const SignUp  = () => {
                 variant="contained">Google Sign In
               </Button>
             )}
-            onSuccess= {googleSuccess}
+            onSuccess={googleSuccess}
             onFailure={googleError}
             cookiePolicy="single_host_origin"
           />
@@ -137,4 +123,4 @@ const SignUp  = () => {
   );
 }
 
-export default SignUp 
+export default SignUp;

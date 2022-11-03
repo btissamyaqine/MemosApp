@@ -7,12 +7,12 @@ import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
 import Auth from './components/Auth/Auth';
 
-function App() {
+const App = () => {
   const user = JSON.parse(localStorage.getItem('profile'));
   return (
 
     <BrowserRouter>
-      <Container maxidth="xl">
+      <Container maxWidth="xl">
         <Navbar />
         <Routes>
           <Route exact path="/" element={<Navigate to="/posts"/>} />
