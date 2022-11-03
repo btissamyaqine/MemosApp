@@ -5,7 +5,6 @@ import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import DeleteIcon from '@material-ui/icons/Delete';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import ThumbUpAltOutlined from '@material-ui/icons/ThumbUpAltOutlined';
-// eslint-disable-next-line no-unused-vars
 import InfoIcon from '@material-ui/icons/Info';
 import { useDispatch } from 'react-redux';
 import moment from 'moment';
